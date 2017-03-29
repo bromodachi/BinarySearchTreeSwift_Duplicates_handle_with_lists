@@ -135,6 +135,30 @@ extension BinarySearchTree {
     }
 }
 
+extension BinarySearchTree {
+    
+    //if we have the element in the binary tree
+    func contains(key: Element) ->  Bool {
+        return !get(key: key).isEmpty
+    }
+    
+    func get(key: Element) -> BinarySearchTree<Element> {
+        switch self {
+            case .Leaf: return self
+            case .Node(let left, let element, let right):
+                if key < element.first!  {
+                    return left.get(key: key)
+                }
+                else if key > element.first! {
+                    return right.get(key: key)
+                }
+                else {
+                    return self
+                }
+        }
+    }
+}
+
 
 var intBinary = BinarySearchTree<Int>()
 
@@ -147,7 +171,7 @@ intBinary.insert(x: 2)
 intBinary.insert(x: 15)
 intBinary.insert(x: 15)
 
-
+print(intBinary.contains(key: 15))
 
 var iterator = intBinary.inOrder
 while let value = iterator.next() {
@@ -161,3 +185,11 @@ iterator = intBinary.inOrder
 while let value = iterator.next() {
     print(value)
 }
+print(intBinary.contains(key: 15))
+
+
+
+let test: Set = [1,2,3,4,5]
+
+let test2: Set = [3,4,5,8]
+test.subtracting(test2)//(test2)
