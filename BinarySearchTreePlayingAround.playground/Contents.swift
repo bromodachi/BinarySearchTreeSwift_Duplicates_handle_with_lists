@@ -2,11 +2,9 @@
 
 import UIKit
 
-///A photo to a gear. This hold the order(file_id) and the photo_id to the server(_id)
-///It also holds the url given from the server
 
 
-///Credit goes to the amazing functional swift book. Edited to allow duplicates
+///Credit goes to the amazing functional swift book. Edited to allow duplicates and delete
 indirect enum BinarySearchTree<Element: Comparable> {
     case Leaf
     case Node(BinarySearchTree<Element>, [Element], BinarySearchTree<Element>)
